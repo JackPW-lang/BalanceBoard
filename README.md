@@ -153,6 +153,8 @@ students to take control of their productivity and achieve greater success in th
 #### *3.5 - Built-In Grade Calculator*
 #### *3.6 - Future AI/ML Enhancements*
 ### *4 - User Interface Design*
+#### *4.1 - Launching the app for the first time (Setup Screen)*
+#### *4.2 - Launching the app regularly (Welcome Screen)*
 ### *5 - User Guide*
 ### *6 - Data Management*
 ### *7 - Future Improvements & AI Integration*
