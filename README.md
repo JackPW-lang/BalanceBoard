@@ -1,4 +1,4 @@
-# 📚 BalanceBoard - A JavaFX Application
+# 📚 BalanceBoard - A JavaFX Application (Disclaimer: Very Early Stages od Development)
 
 A JavaFX-based productivity tool designed to help students prevent procrastination and avoid missing due dates. Inspired by real-world student challenges, this app provides an intuitive agenda system, built-in analytics, and a reward system to streamline academic workflow and promote better time management.
 
