@@ -13,7 +13,10 @@ public class Main extends Application {
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//Image icon = new Image("Filename"); NEED TO GET LOGO FILE AND PASTE UNDER SRC
+			//primaryStage.getIcons().add(icon);
 			primaryStage.setTitle("BalanceBoard");
+			primaryStage.setFullScreen(true);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
