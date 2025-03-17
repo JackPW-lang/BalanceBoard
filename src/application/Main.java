@@ -1,6 +1,8 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -19,7 +21,11 @@ public class Main extends Application {
 			Image icon = new Image("Logo3.jpg");
 			primaryStage.getIcons().add(icon);
 			primaryStage.setTitle("BalanceBoard");
-			//primaryStage.setFullScreen(true);
+			Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+	        primaryStage.setX(screenBounds.getMinX());
+	        primaryStage.setY(screenBounds.getMinY());
+	        primaryStage.setWidth(screenBounds.getWidth());
+	        primaryStage.setHeight(screenBounds.getHeight());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
