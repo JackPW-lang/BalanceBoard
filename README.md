@@ -18,7 +18,7 @@ A JavaFX-based productivity tool designed to help students prevent procrastinati
 
 - **AI Integration (Future Plan):** Adaptive reminders, predictive analytics, and personalized task suggestions
 
-## 🚀 Getting Started
+## Getting Started
 
 Ensure you have the following installed:
 
