@@ -56,6 +56,8 @@ This software and its source code are proprietary and confidential. Unauthorized
 
 ## 📜 Documentation
 
+The documentation follows in the next sections of this README. If you prefer to view the full LaTeX-based documentation as a PDF, you can access it [here](MLDocumentation1.pdf)
+
 
 
 ### *Abstract*
