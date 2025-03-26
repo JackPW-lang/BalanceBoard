@@ -56,10 +56,8 @@ This software and its source code are proprietary and confidential. Unauthorized
 
 ## 📜 Documentation
 
-If you wish to view this documentation in LaTEX, a full LaTeX-based documentation is available in the docs/ directory. You can compile it using:
-```bash
-$ pdflatex balanceboard.tex
-```
+
+
 ### *Abstract*
 For as long as education has existed, students have struggled with time management, often overes-
 timating their available time and missing critical academic deadlines. Balancing a busy schedule while
