@@ -1,6 +1,6 @@
 # BalanceBoard - A JavaFX Application
 
-### Update: Development slowed until the Fall 2025 Semester, where this app & its development will officially be supervised by a professor at the School of Computer Science at McGill. Following this, development will continue in full force.
+### Update: Development paused until the Fall 2025 Semester, where this app & its development will officially be supervised by a professor at the School of Computer Science at McGill. Following this, development will continue in full force.
 
 A JavaFX-based productivity tool designed to help students prevent procrastination and avoid missing due dates. Inspired by real-world student challenges, this app provides an intuitive agenda system, built-in analytics, and a reward system to streamline academic workflow and promote better time management.
 
@@ -149,13 +149,61 @@ students to take control of their productivity and achieve greater success in th
 ### *2 - Technology Stack*
 ### *3 - App Functionality*
 #### *3.1 - The Core Feature*
+
+The core functionality of this application revolves around the agenda system, an enhanced to-do list that allows students to efficiently track assignments, deadlines, and study plans. Tasks are displayed along with their respective due dates and time remaining, helping students visualize upcoming responsibilities. Users can add, remove, and complete tasks, with completed tasks disappearing in a ‘successful completion’ manner. Additionally, tasks can be set as recurring—ideal for assignments like weekly quizzes or discussion posts, ensuring that repeated deadlines are never overlooked.
+
+The agenda will provide multiple viewing options to accommodate different planning styles. Users can switch between a daily view, a weekly view, and a calendar-style month view. To avoid overwhelming the interface, the monthly calendar view will display only hard deadlines and release dates, keeping the display clean and focused.
+
 #### *3.2 - Analytics & Producivity Tracking*
+
+Beyond basic task management, the application continuously runs analytics in the background to provide meaningful insights into a student’s workflow. While more analytics may be added in the future, the following key metrics will be included in the initial implementation:
+
+- Time elapsed between the release date of a task and when the student starts working on it.
+-  Time taken between task completion and final submission.
+-  Weekly and monthly distribution of workload—analyzing whether work is balanced daily or left to accumulate before deadlines.
+
+These insights will contribute to a personalized productivity score, providing students with a clear and measurable depiction of their work habits over weekly, monthly, and potentially even yearly periods. This score aims to encourage self-improvement by helping students recognize tendencies such as procrastination or last-minute cramming.
+
 #### *3.3 - Task Prioritization & Smart Scheduling*
+
+A dynamic task prioritization system will assist students in structuring their workflow more effectively. By considering assignment weight and due dates, the system will generate a personalized study plan that ensures high-impact assignments receive appropriate attention. Rather than simply listing tasks in chronological order, this feature helps students allocate time based on importance, preventing last-minute rushes and optimizing productivity.
+
 #### *3.4 - Gamified Reward System*
+
+To further motivate students, a reward system featuring virtual trophies and achievements will recognize task completion and consistency. By gamifying the study process, this system fosters positive reinforcement, keeping students engaged and on track.
+
 #### *3.5 - Built-In Grade Calculator*
+
+A feature that could prove to be very useful is a built - in grade calculator system, that is automated, pending the user's input grades and grading schemes. I personally have a routine that I execute come finals season where I make a list of all attainable final grades in the class and the corresponding required final exam score, giving me a foolproof look at how I need to perform - it is useful in cases where you need to simply pass, and also useful in cases where you need that A. In any case, it allows for strategic studying rather than relying on guesswork of how you need to perform, which has surely caused some preventable failures in the past.
+
+The built-in grade calculator provides a seamless way for students to track their academic standing and determine required scores for their desired final grade. While not mandatory, this feature is available for users who wish to take advantage of it.
+
+Students can customize their grading setup by adding exams, assignments, quizzes, papers, and other coursework, each with its respective weight. The system also supports grading rule variations, such as:
+
+- Dropped grades - many courses offer schemes such that the lowest assignment, quiz, or other item is dropped.
+- Multiple grading schemes - most courses offer multiple schemes and accept the highest grade.
+
+
+Behind the scenes, the grade calculator is structured using object-oriented programming (OOP) principles. Each coursework entry (exam, assignment, etc.) is treated as an object, storing its weight and grade as fields. These objects are then processed through a calculation array, efficiently computing weighted averages and final grade projections.
+
+This approach promises that the system remains scalable, efficient, and easy to update, providing students with a clear, stress-free way to stay on top of their grades.
+
 #### *3.6 - Future AI/ML Enhancements*
+
+While the initial version of this application focuses on structured task management and analytics, future iterations will explore AI and machine learning to further optimize student productivity. Potential AI-driven enhancements include:
+
+- Personalized task suggestions – Recommends optimal start times based on known work habits.
+- Smart reminders – Adaptive notifications that trigger at moments when procrastination is most likely.
+- Predictive analytics – Forecasts productivity trends and suggests improvements.
+
+These features would allow the application to adapt to individual student behaviors, making it an even more powerful tool for academic success.
+
 ### *4 - User Interface Design*
 #### *4.1 - Launching the app for the first time (Setup Screen)*
+
+What do we need to know about the user? Certainly not very much - there is no personal information required. We merely seek academic details, such as the number of courses, number of credits per course, grading scheme
+When a new user launches the application for the first time, they will be prompted to answer a few short questions, including:
+
 #### *4.2 - Launching the app regularly (Welcome Screen)*
 ### *5 - User Guide*
 ### *6 - Data Management*
