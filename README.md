@@ -204,6 +204,10 @@ These features would allow the application to adapt to individual student behavi
 What do we need to know about the user? Certainly not very much - there is no personal information required. We merely seek academic details, such as the number of courses, number of credits per course, grading scheme
 When a new user launches the application for the first time, they will be prompted to answer a few short questions, including:
 
+-
+-
+-
+
 #### *4.2 - Launching the app regularly (Welcome Screen)*
 ### *5 - User Guide*
 ### *6 - Data Management*
