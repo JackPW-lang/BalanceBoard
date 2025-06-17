@@ -204,9 +204,23 @@ These features would allow the application to adapt to individual student behavi
 What do we need to know about the user? Certainly not very much - there is no personal information required. We merely seek academic details, such as the number of courses, number of credits per course, grading scheme
 When a new user launches the application for the first time, they will be prompted to answer a few short questions, including:
 
--
--
--
+- Are you a University Student, or a High School Student?
+  - If university student:
+    - what is your program, year, and school?
+    - to begin a new term, please enter your courses for this semester along with their credit amount.
+  - If high school:
+    - what grade
+    - what country/state/province (Your school's location helps determine your school’s grading scale and term structure.)
+    - what style of term system do you have? (e.g. yearly, two semesters a year, quarter system, etc)
+    - to begin a new term, please list your courses.
+- Do you prefer having everything listed at once (i.e. can see everything at a glance even if it means more clutter), or do you prefer a simple UI (i.e. few things on the screen at a time, less overwhelming but requires extra navigation to find certain info)? (This is to tailor the UI to suit their learning style)
+- Do you prefer a system that actively reminds you of tasks, (e.g. push notifications, reminders when procrastination is detected) or a system that simply lists things (no interruptions, "do not disturb" — just a clean space you check on your own)?
+- *optional* Are there any issues or challenges that have historically affected your grades or learning (e.g., procrastination, burnout, test anxiety, ADHD, etc.)? We’ll use this info to better tailor reminders, notifications, and UI interactions to support your unique needs — no judgment, just support. 🛈 You can update this anytime. We want BalanceBoard to grow with you, not just around your deadlines.
+
+Note: Everything here can be changed later in Settings. Your answers to this questionnaire are always saved — you can revisit and edit them anytime.
+
+In Settings, users can revisit the original onboarding questionnaire. Each answer appears alongside the unselected options, allowing users to quickly remember their previous choice and explore alternatives.
+Tooltips above unselected options provide a short summary of what would change if the option were selected — making experimentation frictionless and fully reversible.
 
 #### *4.2 - Launching the app regularly (Welcome Screen)*
 ### *5 - User Guide*
