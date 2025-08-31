@@ -8,8 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
-import javafx.scene.Group;
-
+import javafx.scene.input.KeyCombination;
 
 public class Main extends Application {
 	@Override
@@ -26,6 +25,11 @@ public class Main extends Application {
 	        primaryStage.setY(screenBounds.getMinY());
 	        primaryStage.setWidth(screenBounds.getWidth());
 	        primaryStage.setHeight(screenBounds.getHeight());
+
+			// Fullscreen stuff. Does not work when user hits the green maximize button.
+			//primaryStage.setFullScreen(true);
+			//primaryStage.setFullScreenExitHint("BalanceBoard is full screen. Press ESC to exit.");
+			//primaryStage.setFullScreenExitKeyCombination(KeyCombination.valueOf("esc"));
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
