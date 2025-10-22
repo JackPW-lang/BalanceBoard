@@ -1,7 +1,5 @@
 # BalanceBoard - A JavaFX Application
 
-### Update: Development paused until the Fall 2025 Semester, where this app & its development will officially be supervised by a professor at the School of Computer Science at McGill. Following this, development will continue in full force.
-
 A JavaFX-based productivity tool designed to help students prevent procrastination and avoid missing due dates. Inspired by real-world student challenges, this app provides an intuitive agenda system, built-in analytics, and a reward system to streamline academic workflow and promote better time management.
 
 ## Features
