@@ -28,8 +28,6 @@ Ensure you have the following installed:
 
 - Maven (for dependency management)
 
-- SQLite (for data persistence)
-
 ## Installation:
 
 ## Running the Application
