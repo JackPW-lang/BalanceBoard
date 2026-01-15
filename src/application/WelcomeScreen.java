@@ -1,37 +1,109 @@
 package application;
 
-public class WelcomeScreen {
-    /*
-    As per the documentation and the README, this class contains the code necessary for sections 4.1 - 4.2, i.e.
-    the setup screen and the general welcome screen.
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.geometry.Pos;
 
-    When the user launches the app for the first time, they shall be directed to a questionnaire serving to taylor the
-    app to their needs. This, in a control flow sense, can be implemented by simply calling the constructor of this
-    class - eliminating the need for a boolean field to indicate if it is the users first time launching the app. From
-    here, a method will be called containing the questionnaire, and populating the remaining fields in this class with
-    the answers. This seems to be the cleanest approach.
+public class WelcomeScreen extends Window {
 
-    Then when the user launches the app again, now the fields and methods can be manipulated as usual, the constructor
-    will never be called again, eliminating an erroneous trigger of the questionnaire for a second time.
+    // Fields
 
-    The fields of this class will represent the answers to the questionnaire - having these persist as field values will
-    enable the user to go back and change the settings. A separate edit/update settings method will be implemented in
-    this class allowing the user to modify the fields at their discretion.
-     */
-
-    // Fields go here - mainly to be answered by questionnaire.
-
-    // Constructor
-    public WelcomeScreen() {
-        answerQuestionnaire();
+    // Constructors - once basic framework is established, implement the intro questionnaire within the WelcomeScreen constructor.
+    public WelcomeScreen(Stage stage, User user) {
+        super(stage, user);
     }
 
-    // Getters, Setters and other Methods
-    public void answerQuestionnaire() {
-        // This is where the questionnaire is answered, populating the fields above.
-    }
+    // Methods
 
-    public void editSettings() {
-        // This is where the user will be able to edit their settings later.
+    @Override
+    public Parent createContent(User u) { // Creates the content specific for the WelcomeScreen class.
+
+        if (!u.getComplexityPreferences()[0]) { // The preference is Simple
+
+            VBox root = new VBox();
+            root.setStyle("-fx-background-color: black;");
+            Label title = new Label("(Simple Welcome Screen)");
+            title.setStyle("-fx-text-fill: #AAAAAA;");
+
+            // Screen Switching Buttons:
+            Button toAgenda = new Button("Agenda");
+            Button toSchedule = new Button("Schedule");
+            Button toAnalytics = new Button("Analytics");
+            Button toComplex = new Button("Complex Mode");
+
+            // Navigate to Agenda
+            toAgenda.setOnAction(e -> {
+                AgendaScreen agenda = new AgendaScreen(stage, user);
+                stage.setScene(agenda.getScene());
+            });
+
+            // Navigate to Schedule
+            toSchedule.setOnAction(e -> {
+                SchedulerScreen schedule = new SchedulerScreen(stage, user);
+                stage.setScene(schedule.getScene());
+            });
+
+            // Navigate to Analytics
+            toAnalytics.setOnAction(e -> {
+                AnalyticsScreen analytics = new AnalyticsScreen(stage, user);
+                stage.setScene(analytics.getScene());
+            });
+
+            // Switch to Complex Mode - this button will need to update the preference field in the User class, as well as construct a new screen with this in mind.
+            toComplex.setOnAction(e -> {
+                user.updateWelcomeComplexity(true);
+                WelcomeScreen complex = new WelcomeScreen(stage, user);
+                stage.setScene(complex.getScene());
+            });
+
+            root.getChildren().addAll(title, toAgenda, toAnalytics, toSchedule, toComplex);
+            root.setAlignment(Pos.CENTER);
+            return root;
+
+        } else { // The preference is Complex
+
+            VBox root = new VBox();
+            root.setStyle("-fx-background-color: black;");
+            Label title = new Label("(Complex Welcome Screen)");
+            title.setStyle("-fx-text-fill: #AAAAAA;");
+
+            // Screen Switching Buttons:
+            Button toAgenda = new Button("Agenda");
+            Button toSchedule = new Button("Schedule");
+            Button toAnalytics = new Button("Analytics");
+            Button toSimple = new Button("Simple Mode");
+
+            // Navigate to Agenda
+            toAgenda.setOnAction(e -> {
+                AgendaScreen agenda = new AgendaScreen(stage, user);
+                stage.setScene(agenda.getScene());
+            });
+
+            // Navigate to Schedule
+            toSchedule.setOnAction(e -> {
+                SchedulerScreen schedule = new SchedulerScreen(stage, user);
+                stage.setScene(schedule.getScene());
+            });
+
+            // Navigate to Analytics
+            toAnalytics.setOnAction(e -> {
+                AnalyticsScreen analytics = new AnalyticsScreen(stage, user);
+                stage.setScene(analytics.getScene());
+            });
+
+            // Switch to Simple Mode - this button will need to update the preference field in the User class, as well as construct a new screen with this in mind.
+            toSimple.setOnAction(e -> {
+                user.updateWelcomeComplexity(false); // Update the user's preference by modifying the field.
+                WelcomeScreen simple = new WelcomeScreen(stage, user);
+                stage.setScene(simple.getScene());
+            });
+
+            root.getChildren().addAll(title, toAgenda, toAnalytics, toSchedule, toSimple);
+            root.setAlignment(Pos.CENTER);
+            return root;
+        }
     }
 }

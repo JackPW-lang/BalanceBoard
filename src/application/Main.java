@@ -14,29 +14,17 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400,Color.BLACK);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			Image icon = new Image("Logo3.jpg");
-			primaryStage.getIcons().add(icon);
-			primaryStage.setTitle("BalanceBoard");
-			Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-	        primaryStage.setX(screenBounds.getMinX());
-	        primaryStage.setY(screenBounds.getMinY());
-	        primaryStage.setWidth(screenBounds.getWidth());
-	        primaryStage.setHeight(screenBounds.getHeight());
 
-			// Fullscreen stuff. Does not work when user hits the green maximize button.
-			//primaryStage.setFullScreen(true);
-			//primaryStage.setFullScreenExitHint("BalanceBoard is full screen. Press ESC to exit.");
-			//primaryStage.setFullScreenExitKeyCombination(KeyCombination.valueOf("esc"));
-			primaryStage.setScene(scene);
+			// Welcome Screen is launched first
+			User user = new User("Jack", true);
+			WelcomeScreen welcome = new WelcomeScreen(primaryStage, user);
+			primaryStage.setScene(welcome.getScene());
 			primaryStage.show();
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
