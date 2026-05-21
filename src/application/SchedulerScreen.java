@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 public class SchedulerScreen extends Window {
 
-    // Fields inherited from Window Class: scene, stage
+    // Fields inherited from Window Class: scene, stage, user
 
     // Constructors
     public SchedulerScreen (Stage stage, User user) {

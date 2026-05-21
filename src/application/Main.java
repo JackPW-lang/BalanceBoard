@@ -16,7 +16,7 @@ public class Main extends Application {
 		try {
 
 			// Welcome Screen is launched first
-			User user = new User("Jack", true);
+			User user = new User("Jack", Level.UNIVERSITY);
 			WelcomeScreen welcome = new WelcomeScreen(primaryStage, user);
 			primaryStage.setScene(welcome.getScene());
 			primaryStage.show();

@@ -1,24 +1,25 @@
 package application;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class User {
+public class User  {
 
     // Fields
     private String name;
-    private final boolean level; // 0 = High School, 1 = University
+    private Level level; // 0 = High School, 1 = University
     private double gpa;
     private double productivityScore;
-    private boolean[] complexityPreferences; // stores simple or complex mode preferences for each screen. {WelcomeScreen, AgendaScreen, SchedulerScreen, AnalyticsScreen}
-    private boolean[] introQuestionnaireAnswers;
-    private ArrayList <Task> taskList;
-    private ArrayList <Event> eventList;
+    private final boolean[] complexityPreferences; // stores simple or complex mode preferences for each screen. {WelcomeScreen, AgendaScreen, SchedulerScreen, AnalyticsScreen}
+    private final boolean[] introQuestionnaireAnswers = new boolean[1]; // change to reflect actual properties of form.
+    private final ArrayList <Task> taskList;
+    private final ArrayList <Event> eventList;
 
     // Constructors
-    public User(String name, boolean level) {
+    public User(String name, Level level) {
 
         this.name = name;
         this.level = level;
-        this.complexityPreferences = new boolean[4];
+        this.complexityPreferences = new boolean[4]; // to be set once questionnaire answered.
         this.taskList = new ArrayList <Task> ();
         this.eventList = new ArrayList <Event> ();
     }
@@ -33,11 +34,15 @@ public class User {
     public void setName(String n) { this.name = name; }
     public void setGpa(double g) { this.gpa = g; }
     public void setProductivityScore(double p) { this.productivityScore = p; }
-    public void setComplexityPreferences(boolean [] c) { this.complexityPreferences = c; }
     public void updateWelcomeComplexity(boolean b) { this.complexityPreferences[0] = b; }
     public void updateSchedulerComplexity(boolean b) { this.complexityPreferences[2] = b; }
     public void updateAnalyticsComplexity(boolean b) { this.complexityPreferences[3] = b; }
-    public void setIntroQuestionnaireAnswers(boolean [] i) { this.introQuestionnaireAnswers = i; }
+    public void setIntroQuestionnaireAnswers(boolean [] j) {
+        for (int i = 0; i < introQuestionnaireAnswers.length; i++) {
+            introQuestionnaireAnswers[i] = j[i];
+        }
+    }
+
 
     // Getters
     public String getName() { return this.name; }

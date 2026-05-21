@@ -23,7 +23,7 @@ import javafx.geometry.Pos;
 
 public class AgendaScreen extends Window {
 
-    // Fields inherited from Window: Scene, Stage
+    // Fields inherited from Window: scene, stage, user
 
     // Constructors
     public AgendaScreen(Stage stage, User user) {

@@ -7,9 +7,9 @@ public class Event { // Event class - similar to the Task class, but for events 
 
     // Fields
     private String title;
-    private LocalTime start;
-    private LocalTime end;
-    private LocalDate date;
+    private final LocalTime start;
+    private final LocalTime end;
+    private final LocalDate date;
     private boolean isWeekly;
     private boolean completed;
 
@@ -24,13 +24,6 @@ public class Event { // Event class - similar to the Task class, but for events 
     }
 
     // Methods
-
-    // Setters
-    public void setTitle(String t) { this.title = t; }
-    public void setStart(LocalTime s) { this.start = s; }
-    public void setEnd(LocalTime e) { this.end = e; }
-    public void setDate(LocalDate d) { this.date = d; }
-    public void setWeekly(boolean w) { this.isWeekly = w; }
 
     // Getters
     public String getTitle() { return this.title; }

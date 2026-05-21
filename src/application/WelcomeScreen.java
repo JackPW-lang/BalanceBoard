@@ -9,7 +9,7 @@ import javafx.geometry.Pos;
 
 public class WelcomeScreen extends Window {
 
-    // Fields
+    // Fields inherited from Window: scene, stage, user
 
     // Constructors - once basic framework is established, implement the intro questionnaire within the WelcomeScreen constructor.
     public WelcomeScreen(Stage stage, User user) {

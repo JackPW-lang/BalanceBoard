@@ -10,7 +10,7 @@ import javafx.geometry.Pos;
 
 public class AnalyticsScreen extends Window { // The previously defined Analytics Class will now be implemented here.
 
-    // Fields inherited from Window class: scene, stage.
+    // Fields inherited from Window class: scene, stage, user
 
     // Constructors
     public AnalyticsScreen(Stage stage, User user) {

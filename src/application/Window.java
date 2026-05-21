@@ -14,9 +14,9 @@ public abstract class Window {
     // An abstract class which has subclasses WelcomeScreen, AgendaScreen and ScheduleScreen.
 
     // Fields
-    protected Stage stage;
-    protected Scene scene;
-    protected User user;
+    protected final Stage stage;
+    protected final Scene scene;
+    protected final User user;
 
     // Constructors
     public Window(Stage stage, User user) {
