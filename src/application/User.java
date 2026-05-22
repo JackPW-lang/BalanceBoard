@@ -6,7 +6,7 @@ public class User  {
 
     // Fields
     private String name;
-    private Level level; // 0 = High School, 1 = University
+    private Level level;
     private double gpa;
     private double productivityScore;
     private final boolean[] complexityPreferences; // stores simple or complex mode preferences for each screen. {WelcomeScreen, AgendaScreen, SchedulerScreen, AnalyticsScreen}

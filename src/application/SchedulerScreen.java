@@ -11,7 +11,6 @@ import javax.naming.ldap.StartTlsRequest;
 import java.time.LocalTime;
 import java.time.LocalDate;
 
-
 public class SchedulerScreen extends Window {
 
     // Fields inherited from Window Class: scene, stage, user

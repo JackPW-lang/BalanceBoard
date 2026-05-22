@@ -43,25 +43,26 @@ public class AgendaScreen extends Window {
 
         // input fields
         TextField titleField = new TextField();
-        titleField.setPromptText("Task title");
+        titleField.setPromptText("Task title (required)");
 
         TextField daysField = new TextField();
-        daysField.setPromptText("Days remaining");
+        daysField.setPromptText("Days remaining (required)");
 
-        CheckBox recurringBox = new CheckBox("Recurring task");
+        CheckBox recurringBox = new CheckBox("Recurring task?");
 
         VBox layout = new VBox(10, titleField, daysField, recurringBox);
         layout.setStyle("-fx-padding: 20;");
         dialog.getDialogPane().setContent(layout);
 
+
         dialog.setResultConverter(button -> {
             if (button == createBtn) {
                 try {
-                    return new Task(
-                            titleField.getText(),
-                            Integer.parseInt(daysField.getText()),
-                            recurringBox.isSelected()
-                    );
+                        return new Task(
+                                titleField.getText(),
+                                Integer.parseInt(daysField.getText()),
+                                recurringBox.isSelected()
+                        );
                 } catch (Exception e) {
                     return null; // invalid input
                 }
