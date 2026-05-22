@@ -52,7 +52,7 @@ All rights reserved.
 
 This software and its source code are proprietary and confidential. Unauthorized copying, distribution, modification, or use of any part of this software without explicit permission from the author is strictly prohibited.
 
-**Developed with ❤️ by Jack Parry-Wingfield**
+**Developed by Jack Parry-Wingfield**
 
 ## Documentation
 
