@@ -215,7 +215,7 @@ When a new user launches the application for the first time, they will be prompt
     - to begin a new term, please list your courses.
 - Do you prefer having everything listed at once (i.e. can see everything at a glance even if it means more clutter), or do you prefer a simple UI (i.e. few things on the screen at a time, less overwhelming but requires extra navigation to find certain info)? (This is to tailor the UI to suit their learning style)
 - Do you prefer a system that actively reminds you of tasks, (e.g. push notifications, reminders when procrastination is detected) or a system that simply lists things (no interruptions, "do not disturb" — just a clean space you check on your own)?
-- *optional* Are there any issues or challenges that have historically affected your grades or learning (e.g., procrastination, burnout, test anxiety, ADHD, etc.)? We’ll use this info to better tailor reminders, notifications, and UI interactions to support your unique needs — no judgment, just support. 🛈 You can update this anytime. We want BalanceBoard to grow with you, not just around your deadlines.
+- *optional* Are there any issues or challenges that have historically affected your grades or learning (e.g., procrastination, burnout, test anxiety, ADHD, etc.)? We’ll use this info to better tailor reminders, notifications, and UI interactions to support your unique needs (no judgment, just support).  You can update this anytime. 
 
 Note: Everything here can be changed later in Settings. Your answers to this questionnaire are always saved — you can revisit and edit them anytime.
 
