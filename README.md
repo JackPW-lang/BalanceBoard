@@ -40,11 +40,11 @@ Ensure you have the following installed:
 
 BalanceBoard is designed for students ranging from high school to university/college, helping them effectively manage academic workloads and deadlines. Future updates may introduce separate High School and University modes to better tailor productivity tracking and organization to different education levels.
 
-## 🤝 Contributing
+## Contributing
 
 At this time, contributions are not permitted as this project is private.
 
-## 📄 License (This project shall NOT be considered open source, at this time.)
+## License (This project shall NOT be considered open source, at this time.)
 
 Copyright (c) 2025 Jack Parry-Wingfield.
 
@@ -54,9 +54,9 @@ This software and its source code are proprietary and confidential. Unauthorized
 
 **Developed with ❤️ by Jack Parry-Wingfield**
 
-## 📜 Documentation
+## Documentation
 
-The documentation follows in the next sections of this README. If you prefer to view the full LaTeX-based documentation as a PDF, you can access it [here](BalanceBoard_Documentation-2.pdf)
+The documentation follows in the next sections of this README. If you prefer to view the full LaTeX-based documentation as a PDF, you can access it [here](BalanceBoard_Documentation-4.pdf)
 
 
 
