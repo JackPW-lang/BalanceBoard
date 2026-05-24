@@ -75,17 +75,17 @@ public class AgendaScreen extends Window {
         Button createBtnNode = (Button) dialog.getDialogPane().lookupButton(createBtn);
         createBtnNode.addEventFilter(ActionEvent.ACTION, e -> {
             if (titleField.getText().isBlank()) {
-                titleField.setStyle("-fx-border-color: red;");
+                titleField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 e.consume();
             }
             if (daysField.getText().isBlank()) {
-                daysField.setStyle("-fx-border-color: red;");
+                daysField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 e.consume();
             } else {
                 try {
                     Integer.parseInt(daysField.getText());
                 } catch (NumberFormatException exception) {
-                    daysField.setStyle("-fx-border-color: red;");
+                    daysField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                     e.consume();
                 }
             }
