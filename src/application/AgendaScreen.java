@@ -1,6 +1,7 @@
 package application;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.VBox;
@@ -55,21 +56,43 @@ public class AgendaScreen extends Window {
         dialog.getDialogPane().setContent(layout);
 
 
-        dialog.setResultConverter(button -> {
+        dialog.setResultConverter(button -> { // inputs: any button clicked on addTask popup
             if (button == createBtn) {
                 try {
-                        return new Task(
-                                titleField.getText(),
-                                Integer.parseInt(daysField.getText()),
-                                recurringBox.isSelected()
-                        );
-                } catch (Exception e) {
+                    return new Task(
+                            titleField.getText(),
+                            Integer.parseInt(daysField.getText()),
+                            recurringBox.isSelected()
+                    );
+                } catch (Exception e) { // note that emptiness also counts as an exception when using parseInt.
                     return null; // invalid input
                 }
             }
             return null;
         });
-        return dialog.showAndWait().orElse(null);
+
+        // add here the logic to run if one or both required fields (daysRemaining, title) are not filled.
+        Button createBtnNode = (Button) dialog.getDialogPane().lookupButton(createBtn);
+        createBtnNode.addEventFilter(ActionEvent.ACTION, e -> {
+            if (titleField.getText().isBlank()) {
+                titleField.setStyle("-fx-border-color: red;");
+                e.consume();
+            }
+            if (daysField.getText().isBlank()) {
+                daysField.setStyle("-fx-border-color: red;");
+                e.consume();
+            } else {
+                try {
+                    Integer.parseInt(daysField.getText());
+                } catch (NumberFormatException exception) {
+                    daysField.setStyle("-fx-border-color: red;");
+                    e.consume();
+                }
+            }
+        });
+
+        return dialog.showAndWait().orElse(null); // User hits Create -> result. If close or cancel -> return null
+        // null returned if user closes or hits cancel, or returning a task creates an exception, or if button clicked is not create.
     }
 
     // refreshTaskList Method to convert the ArrayList field in the user class to UI elements
@@ -120,7 +143,9 @@ public class AgendaScreen extends Window {
         // Add a new Task
         add_Task.setOnAction(e -> {
             Task t = showCreateTaskDialog();
-            if(t != null) { u.addTask(t); } // we do not want to add null tasks to the list.
+            if (t != null) {
+                    u.addTask(t);
+            }// we do not want to add null tasks to the list.
             refreshTaskList(u, taskContainer);
         });
 
@@ -129,7 +154,6 @@ public class AgendaScreen extends Window {
             WelcomeScreen welcome = new WelcomeScreen(stage, user);
             stage.setScene(welcome.getScene());
         });
-
         // Initial rendering of the Task List
         refreshTaskList(u, taskContainer);
 
