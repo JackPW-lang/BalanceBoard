@@ -33,16 +33,16 @@ public class SchedulerScreen extends Window {
 
         // input fields
         TextField titleField = new TextField();
-        titleField.setPromptText("Event title");
+        titleField.setPromptText("Event title (required)");
 
         TextField dateField = new TextField();
-        dateField.setPromptText("Date");
+        dateField.setPromptText("Date (dd/mm; required)");
 
         TextField startTimeField = new TextField();
-        startTimeField.setPromptText("Start Time");
+        startTimeField.setPromptText("Start Time (hh:mm; required)");
 
         TextField endTimeField = new TextField();
-        endTimeField.setPromptText("End Time");
+        endTimeField.setPromptText("End Time (hh:mm; required)");
 
         CheckBox recurringBox = new CheckBox("Weekly event");
 
