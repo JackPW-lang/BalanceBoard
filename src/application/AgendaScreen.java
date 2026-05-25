@@ -43,6 +43,7 @@ public class AgendaScreen extends Window {
         dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
 
         // input fields
+
         TextField titleField = new TextField();
         titleField.setPromptText("Task title (required)");
 

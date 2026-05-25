@@ -1,5 +1,6 @@
 package application;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -64,6 +65,26 @@ public class SchedulerScreen extends Window {
                 }
             }
             return null;
+        });
+
+        Button createBtnNode = (Button) dialog.getDialogPane().lookupButton(createBtn);
+        createBtnNode.addEventFilter(ActionEvent.ACTION, e -> {
+            if (titleField.getText().isBlank()) {
+                titleField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            if (dateField.getText().isBlank()) {
+                dateField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            if (startTimeField.getText().isBlank()) {
+                startTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            if (endTimeField.getText().isBlank()) {
+                endTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
         });
         return dialog.showAndWait().orElse(null);
     }
