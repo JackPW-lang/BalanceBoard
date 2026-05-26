@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javax.naming.ldap.StartTlsRequest;
 import java.time.LocalTime;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class SchedulerScreen extends Window {
 
@@ -36,7 +37,7 @@ public class SchedulerScreen extends Window {
         titleField.setPromptText("Event title (required)");
 
         TextField dateField = new TextField();
-        dateField.setPromptText("Date (dd/mm; required)");
+        dateField.setPromptText("Date (mm/dd; required)");
 
         TextField startTimeField = new TextField();
         startTimeField.setPromptText("Start Time (hh:mm; required)");
@@ -55,12 +56,14 @@ public class SchedulerScreen extends Window {
                 try {
                     return new Event(
                             titleField.getText(),
-                            LocalTime.parse(startTimeField.getText()),
-                            LocalTime.parse(endTimeField.getText()),
-                            LocalDate.parse(dateField.getText()),
+                            LocalTime.parse(startTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm")),
+                            LocalTime.parse(endTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm")),
+                            LocalDate.parse(dateField.getText() + "/" + LocalDate.now().getYear(),
+                                    DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                             recurringBox.isSelected()
                     );
                 } catch (Exception e) {
+                    System.out.println("Invalid");
                     return null; // invalid input
                 }
             }
@@ -82,6 +85,25 @@ public class SchedulerScreen extends Window {
                 e.consume();
             }
             if (endTimeField.getText().isBlank()) {
+                endTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            try {
+                LocalDate.parse(dateField.getText() + "/" + LocalDate.now().getYear(),
+                        DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+            } catch (Exception exc) { // invalid input
+                dateField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            try {
+                LocalTime.parse(startTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            } catch (Exception exc) {
+                startTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                e.consume();
+            }
+            try {
+                LocalTime.parse(endTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm"));
+            } catch (Exception exc) {
                 endTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                 e.consume();
             }
