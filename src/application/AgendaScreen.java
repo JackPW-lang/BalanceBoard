@@ -39,7 +39,6 @@ public class AgendaScreen extends Window {
         ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
 
-        // Look up the actual button node after adding to dialogPane
         Button createButton = (Button) dialog.getDialogPane().lookupButton(createBtn);
         Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 

@@ -35,18 +35,52 @@ public class SchedulerScreen extends Window {
         ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
 
+        Button createButton = (Button) dialog.getDialogPane().lookupButton(createBtn);
+        Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
+
+        createButton.setStyle(
+                "-fx-background-color: #4CAF50;" +  // green
+                        "-fx-text-fill: white;" +
+                        "-fx-font-weight: bold;"
+        );
+
+        cancelButton.setStyle(
+                "-fx-background-color: #555555;" +  // grey
+                        "-fx-text-fill: white;"
+        );
+
         // input fields
         TextField titleField = new TextField();
         titleField.setPromptText("Event title (required)");
+        titleField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         TextField dateField = new TextField();
         dateField.setPromptText("Date (mm/dd; required)");
+        dateField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         TextField startTimeField = new TextField();
         startTimeField.setPromptText("Start Time (hh:mm; required)");
+        startTimeField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         TextField endTimeField = new TextField();
         endTimeField.setPromptText("End Time (hh:mm; required)");
+        endTimeField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         CheckBox recurringBox = new CheckBox("Weekly event");
 
@@ -76,38 +110,73 @@ public class SchedulerScreen extends Window {
         Button createBtnNode = (Button) dialog.getDialogPane().lookupButton(createBtn);
         createBtnNode.addEventFilter(ActionEvent.ACTION, e -> {
             if (titleField.getText().isBlank()) {
-                titleField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                titleField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             if (dateField.getText().isBlank()) {
-                dateField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                dateField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             if (startTimeField.getText().isBlank()) {
-                startTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                startTimeField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             if (endTimeField.getText().isBlank()) {
-                endTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                endTimeField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             try {
                 LocalDate.parse(dateField.getText() + "/" + LocalDate.now().getYear(),
                         DateTimeFormatter.ofPattern("MM/dd/yyyy"));
             } catch (Exception exc) { // invalid input
-                dateField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                dateField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             try {
                 LocalTime.parse(startTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm"));
             } catch (Exception exc) {
-                startTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                startTimeField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             try {
                 LocalTime.parse(endTimeField.getText(), DateTimeFormatter.ofPattern("HH:mm"));
             } catch (Exception exc) {
-                endTimeField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                endTimeField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
         });
