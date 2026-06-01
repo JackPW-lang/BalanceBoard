@@ -29,6 +29,9 @@ public class SchedulerScreen extends Window {
         Dialog<Event> dialog = new Dialog<>();
         dialog.setTitle("Create New Event");
 
+        DialogPane dialogpane = dialog.getDialogPane();
+        dialogpane.setStyle("-fx-background-color: #2C2F33;");
+
         ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
 

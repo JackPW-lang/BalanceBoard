@@ -3,12 +3,8 @@ package application;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.control.Dialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ButtonBar;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -18,8 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.geometry.Pos;
 
 public class AgendaScreen extends Window {
@@ -39,18 +33,50 @@ public class AgendaScreen extends Window {
         Dialog<Task> dialog = new Dialog<>();
         dialog.setTitle("Create New Task");
 
+        DialogPane dialogpane = dialog.getDialogPane();
+        dialogpane.setStyle("-fx-background-color: #2C2F33;");
+
         ButtonType createBtn = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createBtn, ButtonType.CANCEL);
+
+        // Look up the actual button node after adding to dialogPane
+        Button createButton = (Button) dialog.getDialogPane().lookupButton(createBtn);
+        Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
+
+        createButton.setStyle(
+                "-fx-background-color: #4CAF50;" +  // green
+                        "-fx-text-fill: white;" +
+                        "-fx-font-weight: bold;"
+        );
+
+        cancelButton.setStyle(
+                "-fx-background-color: #555555;" +  // grey
+                        "-fx-text-fill: white;"
+        );
 
         // input fields
 
         TextField titleField = new TextField();
         titleField.setPromptText("Task title (required)");
+        titleField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         TextField daysField = new TextField();
         daysField.setPromptText("Days remaining (required)");
+        daysField.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-prompt-text-fill: #888888;"
+        );
 
         CheckBox recurringBox = new CheckBox("Recurring task?");
+        recurringBox.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-text-fill: #888888;"
+        );
 
         VBox layout = new VBox(10, titleField, daysField, recurringBox);
         layout.setStyle("-fx-padding: 20;");
@@ -76,11 +102,21 @@ public class AgendaScreen extends Window {
         Button createBtnNode = (Button) dialog.getDialogPane().lookupButton(createBtn);
         createBtnNode.addEventFilter(ActionEvent.ACTION, e -> {
             if (titleField.getText().isBlank()) {
-                titleField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                titleField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             }
             if (daysField.getText().isBlank()) {
-                daysField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                daysField.setStyle(
+                        "-fx-background-color: #222222;" +
+                                "-fx-text-fill: white;" +
+                                "-fx-prompt-text-fill: #888888;" +
+                                "-fx-border-color: red; -fx-border-width: 2px;"
+                );
                 e.consume();
             } else {
                 try {
