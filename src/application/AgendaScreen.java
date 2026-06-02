@@ -134,13 +134,16 @@ public class AgendaScreen extends Window {
     // refreshTaskList Method to convert the ArrayList field in the user class to UI elements
     private void refreshTaskList(User u, VBox taskContainer) {
 
-        taskContainer.getChildren().clear(); // Rid tree of nodes (tasks) before updating with the current list
+        taskContainer.getChildren().clear();
+        taskContainer.setAlignment(Pos.CENTER);// Rid tree of nodes (tasks) before updating with the current list
 
         for(Task t : u.getTaskList()) { // Iterating through every task the user has
 
             // taskRow - Each task has a dedicated row
             HBox taskRow = new HBox(10);
-            taskRow.setAlignment(Pos.BASELINE_CENTER);
+            taskRow.setStyle("-fx-background-color: #1e1e1e; -fx-background-radius: 12;");
+            taskRow.maxWidthProperty().bind(stage.widthProperty().multiply(0.5));
+            taskRow.setAlignment(Pos.CENTER);
 
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
             Label titleLabel = new Label(t.getTitle());
@@ -149,17 +152,18 @@ public class AgendaScreen extends Window {
             Label daysLabel = new Label("("+t.getDaysRemaining() + " Days Left.)");
             daysLabel.setStyle("-fx-text-fill: #AAAAAA;");
 
-            CheckBox doneBox = new CheckBox();
-            doneBox.setSelected(t.getCompleted());
+            Button doneBtn = new Button();
+            doneBtn.setStyle("-fx-background-radius: 50; -fx-min-width: 20; -fx-min-height: 20; " +
+                    "-fx-max-width: 20; -fx-max-height: 20; " +
+                    "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 50;");
 
-            // When the user checks the doneBox, this removes the task from their list, and we refresh the list visually as well.
-            doneBox.setOnAction(e -> {
+            doneBtn.setOnAction(e -> {
                 u.removeTask(t);
                 refreshTaskList(u, taskContainer);
             });
 
             // Adding the elements defined above to the scene graph
-            taskRow.getChildren().addAll(titleLabel, daysLabel, doneBox);
+            taskRow.getChildren().addAll(titleLabel, daysLabel, doneBtn);
             taskContainer.getChildren().add(taskRow);
         }
     }
