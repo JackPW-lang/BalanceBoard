@@ -1,5 +1,7 @@
 package application;
 
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -23,16 +25,43 @@ public class WelcomeScreen extends Window {
 
         if (!u.getComplexityPreferences()[0]) { // The preference is Simple
 
-            VBox root = new VBox();
-            root.setStyle("-fx-background-color: black;");
-            Label title = new Label("(Simple Welcome Screen)");
-            title.setStyle("-fx-text-fill: #AAAAAA;");
-
-            // Screen Switching Buttons:
+            // Button definitions
             Button toAgenda = new Button("Agenda");
             Button toSchedule = new Button("Schedule");
             Button toAnalytics = new Button("Analytics");
-            Button toComplex = new Button("Complex Mode");
+            Button toComplex = new Button("Switch to Complex Mode");
+
+            // Button Style
+            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +
+                    "-fx-font-size: 11; -fx-cursor: hand;");
+            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 20;" +
+                    "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
+                    "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
+                    "-fx-font-size: 13; -fx-cursor: hand;";
+
+            toAgenda.setStyle(btnStyle);
+            toSchedule.setStyle(btnStyle);
+            toAnalytics.setStyle(btnStyle);
+
+            // Navigation buttons
+            HBox navButtons = new HBox(20);
+            navButtons.setAlignment(Pos.CENTER);
+            navButtons.getChildren().addAll(toAgenda, toSchedule, toAnalytics);
+
+            BorderPane root = new BorderPane();
+            root.setStyle("-fx-background-color: black;");
+            root.setCenter(navButtons);
+            root.setBottom(toComplex);
+
+            // Welcome message
+            Label title = new Label("Welcome, "+u.getName()+".");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+            VBox welcome = new VBox();
+            welcome.setAlignment(Pos.CENTER);
+            welcome.setSpacing(40);
+            welcome.getChildren().addAll(title, navButtons);
+            root.setCenter(welcome);
 
             // Navigate to Agenda
             toAgenda.setOnAction(e -> {
@@ -58,9 +87,6 @@ public class WelcomeScreen extends Window {
                 WelcomeScreen complex = new WelcomeScreen(stage, user);
                 stage.setScene(complex.getScene());
             });
-
-            root.getChildren().addAll(title, toAgenda, toAnalytics, toSchedule, toComplex);
-            root.setAlignment(Pos.CENTER);
             return root;
 
         } else { // The preference is Complex
