@@ -1,8 +1,10 @@
 package application;
 
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -186,12 +188,16 @@ public class SchedulerScreen extends Window {
     private void refreshEventList(User u, VBox eventContainer) {
 
         eventContainer.getChildren().clear(); // Rid tree of nodes (event) before updating with the current list
+        eventContainer.setAlignment(Pos.CENTER);
 
         for(Event ev : u.getEventList()) { // Iterating through every task the user has
 
             // taskRow - Each task has a dedicated row
             HBox eventRow = new HBox(10);
-            eventRow.setAlignment(Pos.BASELINE_CENTER);
+            eventRow.setStyle("-fx-background-color: #1e1e1e; -fx-background-radius: 12;");
+            eventRow.setPadding(new Insets(12, 16, 12, 16));
+            eventRow.maxWidthProperty().bind(stage.widthProperty().multiply(0.5));
+            eventRow.setAlignment(Pos.CENTER);
 
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
             Label titleLabel = new Label(ev.getTitle()+":");
@@ -209,17 +215,30 @@ public class SchedulerScreen extends Window {
             endLabel = new Label(ev.getEnd().toString());
             endLabel.setStyle("-fx-text-fill: #AAAAAA;");
 
-            CheckBox doneBox = new CheckBox();
-            doneBox.setSelected(ev.getCompleted());
-
-            // When the user checks the doneBox, this removes the task from their list, and we refresh the list visually as well.
-            doneBox.setOnAction(e -> {
+            Button deleteBtn = new Button("🗑️");
+            deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
+            deleteBtn.setOnAction(e -> {
                 u.removeEvent(ev);
                 refreshEventList(u, eventContainer);
             });
 
+            Button doneBtn = new Button();
+            doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
+                    "-fx-max-width: 20; -fx-max-height: 20; " +
+                    "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 3;");
+
+            // When the user checks the doneBox, this removes the task from their list, and we refresh the list visually as well.
+            doneBtn.setOnAction(e -> {
+                u.removeEvent(ev);
+                refreshEventList(u, eventContainer);
+            });
+
+            // Spacer that enables doneBtn to be on right hand side
+            HBox spacer = new HBox();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+
             // Adding the elements defined above to the scene graph
-            eventRow.getChildren().addAll(titleLabel, dateLabel, startLabel, endLabel, doneBox);
+            eventRow.getChildren().addAll(deleteBtn, titleLabel, dateLabel, startLabel, endLabel, spacer, doneBtn);
             eventContainer.getChildren().add(eventRow);
         }
     }
