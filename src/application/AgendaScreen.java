@@ -181,14 +181,34 @@ public class AgendaScreen extends Window {
     @Override
     public Parent createContent(User u) {
 
-        VBox root = new VBox();
-        VBox taskContainer = new VBox(10);
-        root.setStyle("-fx-background-color: black;");
-        Label title = new Label("(Agenda Screen)");
-        title.setStyle("-fx-text-fill: #AAAAAA;");
-
         Button add_Task = new Button("Add Task");
         Button home = new Button("Home");
+
+        String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 20;" +
+                "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
+                "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
+                "-fx-font-size: 13; -fx-cursor: hand;";
+
+        add_Task.setStyle(btnStyle);
+        home.setStyle(btnStyle);
+
+        HBox midContent = new HBox(20);
+        midContent.setAlignment(Pos.CENTER);
+        midContent.getChildren().addAll(add_Task, home);
+
+        BorderPane root = new BorderPane();
+        root.setStyle("-fx-background-color: black;");
+        VBox taskContainer = new VBox(10);
+        root.setCenter(taskContainer);
+
+        Label title = new Label("Your Agenda Today.");
+        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+        VBox middle = new VBox();
+        middle.setAlignment(Pos.CENTER);
+        middle.setSpacing(40);
+        middle.getChildren().addAll(title, midContent, taskContainer);
+        root.setCenter(middle);
 
         // Add a new Task
         add_Task.setOnAction(e -> {
@@ -207,8 +227,7 @@ public class AgendaScreen extends Window {
         // Initial rendering of the Task List
         refreshTaskList(u, taskContainer);
 
-        root.getChildren().setAll(title, add_Task, home, taskContainer);
-        root.setAlignment(Pos.CENTER);
+        //root.getChildren().setAll(title, add_Task, home, taskContainer);
         return root;
     }
 }
