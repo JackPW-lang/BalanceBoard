@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -25,7 +26,6 @@ public class SchedulerScreen extends Window {
     }
 
     // Methods
-
     private Event showCreateEventDialog() {
 
         Dialog<Event> dialog = new Dialog<>();
@@ -248,16 +248,41 @@ public class SchedulerScreen extends Window {
 
         if(!u.getComplexityPreferences()[2]) { // The user's preference is simple
 
-            VBox root = new VBox();
-            VBox eventContainer = new VBox(10);
-            eventContainer.setFillWidth(true);
-            root.setStyle("-fx-background-color: black;");
-            Label title = new Label("(Simple Scheduler Screen)");
-            title.setStyle("-fx-text-fill: #AAAAAA;");
+            //eventContainer.setFillWidth(true);
 
             Button addEvent = new Button("Add Event");
             Button home = new Button("Home");
-            Button toComplex = new Button("Complex");
+            Button toComplex = new Button("Switch to Complex");
+
+            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +
+                    "-fx-font-size: 11; -fx-cursor: hand;");
+            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 20;" +
+                    "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
+                    "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
+                    "-fx-font-size: 13; -fx-cursor: hand;";
+
+            home.setStyle(btnStyle);
+            addEvent.setStyle(btnStyle);
+
+            HBox midContent = new HBox(20);
+            midContent.setAlignment(Pos.CENTER);
+            midContent.getChildren().addAll(addEvent, home);
+
+            BorderPane root = new BorderPane();
+            root.setStyle("-fx-background-color: black;");
+            VBox eventContainer = new VBox(10);
+            root.setCenter(eventContainer);
+
+            Label title = new Label("Your Upcoming Events.");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+            VBox middle = new VBox();
+            middle.setAlignment(Pos.CENTER);
+            middle.setSpacing(40);
+            middle.getChildren().addAll(title, midContent, eventContainer);
+            root.setCenter(middle);
+
+            root.setBottom(toComplex);
 
             // Go Home, i.e. go to Welcome Screen
             home.setOnAction(e -> {
@@ -282,8 +307,6 @@ public class SchedulerScreen extends Window {
             // Initial rendering of the Task List
             refreshEventList(u, eventContainer);
 
-            root.getChildren().addAll(title, addEvent, home, toComplex, eventContainer);
-            root.setAlignment(Pos.CENTER);
             return root;
 
         } else { //  The user's preference is complex
