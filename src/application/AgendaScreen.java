@@ -2,18 +2,17 @@ package application;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 
 public class AgendaScreen extends Window {
@@ -142,8 +141,10 @@ public class AgendaScreen extends Window {
             // taskRow - Each task has a dedicated row
             HBox taskRow = new HBox(10);
             taskRow.setStyle("-fx-background-color: #1e1e1e; -fx-background-radius: 12;");
+            taskRow.setPadding(new Insets(12, 16, 12, 16));
             taskRow.maxWidthProperty().bind(stage.widthProperty().multiply(0.5));
             taskRow.setAlignment(Pos.CENTER);
+
 
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
             Label titleLabel = new Label(t.getTitle());
@@ -153,17 +154,26 @@ public class AgendaScreen extends Window {
             daysLabel.setStyle("-fx-text-fill: #AAAAAA;");
 
             Button doneBtn = new Button();
-            doneBtn.setStyle("-fx-background-radius: 50; -fx-min-width: 20; -fx-min-height: 20; " +
+            doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
                     "-fx-max-width: 20; -fx-max-height: 20; " +
-                    "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 50;");
+                    "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 3;");
+
+            Button deleteBtn = new Button("🗑️");
+            deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
+            deleteBtn.setOnAction(e -> {
+                u.removeTask(t);
+                refreshTaskList(u, taskContainer);
+            });
 
             doneBtn.setOnAction(e -> {
                 u.removeTask(t);
                 refreshTaskList(u, taskContainer);
             });
 
-            // Adding the elements defined above to the scene graph
-            taskRow.getChildren().addAll(titleLabel, daysLabel, doneBtn);
+            // Spacer for button to appear to right
+            HBox spacer = new HBox();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+            taskRow.getChildren().addAll(deleteBtn, titleLabel, daysLabel, spacer, doneBtn);
             taskContainer.getChildren().add(taskRow);
         }
     }
