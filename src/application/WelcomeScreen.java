@@ -1,5 +1,6 @@
 package application;
 
+import javafx.animation.FadeTransition;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.geometry.Pos;
+import javafx.util.Duration;
 
 public class WelcomeScreen extends Window {
 
@@ -47,6 +49,16 @@ public class WelcomeScreen extends Window {
             HBox navButtons = new HBox(20);
             navButtons.setAlignment(Pos.CENTER);
             navButtons.getChildren().addAll(toAgenda, toSchedule, toAnalytics);
+
+            Button[] buttons = {toAgenda, toSchedule, toAnalytics};
+            for (int i = 0; i < buttons.length; i++) {
+                buttons[i].setOpacity(0);
+                FadeTransition fade = new FadeTransition(Duration.millis(500), buttons[i]);
+                fade.setFromValue(0.0);
+                fade.setToValue(1.0);
+                fade.setDelay(Duration.millis(i * 300));
+                fade.play();
+            }
 
             BorderPane root = new BorderPane();
             root.setStyle("-fx-background-color: black;");

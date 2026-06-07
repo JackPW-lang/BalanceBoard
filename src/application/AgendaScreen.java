@@ -1,5 +1,6 @@
 package application;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
+import javafx.util.Duration;
 
 public class AgendaScreen extends Window {
 
@@ -137,7 +139,8 @@ public class AgendaScreen extends Window {
         taskContainer.getChildren().clear();
         taskContainer.setAlignment(Pos.CENTER);// Rid tree of nodes (tasks) before updating with the current list
 
-        for(Task t : u.getTaskList()) { // Iterating through every task the user has
+        for (int i = 0; i < u.getTaskList().size(); i++) {
+            Task t = u.getTaskList().get(i); // Iterating through every task the user has
 
             // taskRow - Each task has a dedicated row
             HBox taskRow = new HBox(10);
@@ -188,6 +191,14 @@ public class AgendaScreen extends Window {
             HBox.setHgrow(spacer, Priority.ALWAYS);
             taskRow.getChildren().addAll(deleteBtn, titleLabel, daysLabel, spacer, doneBtn);
             taskContainer.getChildren().add(taskRow);
+
+            // Fade Animation
+            taskRow.setOpacity(0);
+            FadeTransition fade = new FadeTransition(Duration.millis(500), taskRow);
+            fade.setFromValue(0.0);
+            fade.setToValue(1.0);
+            fade.setDelay(Duration.millis(i * 200));
+            fade.play();
         }
     }
 
@@ -208,6 +219,16 @@ public class AgendaScreen extends Window {
         HBox midContent = new HBox(20);
         midContent.setAlignment(Pos.CENTER);
         midContent.getChildren().addAll(add_Task, home);
+
+        Button[] buttons = {add_Task, home};
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i].setOpacity(0);
+            FadeTransition fade = new FadeTransition(Duration.millis(500), buttons[i]);
+            fade.setFromValue(0.0);
+            fade.setToValue(1.0);
+            fade.setDelay(Duration.millis(i * 300));
+            fade.play();
+        }
 
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: black;");
