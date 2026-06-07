@@ -44,7 +44,7 @@ BalanceBoard is designed for students ranging from high school to university/col
 
 At this time, contributions are not permitted as this project is private.
 
-## License (This project shall NOT be considered open source, at this time.)
+## License (MIT)
 
 Copyright (c) 2025 Jack Parry-Wingfield.
 
