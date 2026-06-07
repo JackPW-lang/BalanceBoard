@@ -252,7 +252,7 @@ public class SchedulerScreen extends Window {
 
             Button addEvent = new Button("Add Event");
             Button home = new Button("Home");
-            Button toComplex = new Button("Switch to Complex");
+            Button toComplex = new Button("Switch to Complex Mode (Not Yet Implemented.)");
 
             toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +
                     "-fx-font-size: 11; -fx-cursor: hand;");

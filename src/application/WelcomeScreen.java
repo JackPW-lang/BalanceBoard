@@ -29,7 +29,7 @@ public class WelcomeScreen extends Window {
             Button toAgenda = new Button("Agenda");
             Button toSchedule = new Button("Schedule");
             Button toAnalytics = new Button("Analytics");
-            Button toComplex = new Button("Switch to Complex Mode");
+            Button toComplex = new Button("Switch to Complex Mode (Not Yet Implemented.)");
 
             // Button Style
             toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +

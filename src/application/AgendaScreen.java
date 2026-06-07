@@ -158,7 +158,7 @@ public class AgendaScreen extends Window {
                     "-fx-max-width: 20; -fx-max-height: 20; " +
                     "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 3;");
 
-            Button deleteBtn = new Button("🗑️");
+            Button deleteBtn = new Button("X");
             deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
             deleteBtn.setOnAction(e -> {
                 u.removeTask(t);
