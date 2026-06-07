@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -147,8 +148,8 @@ public class AgendaScreen extends Window {
 
 
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
-            Label titleLabel = new Label(t.getTitle());
-            titleLabel.setStyle("-fx-text-fill: #AAAAAA;");
+            Text titleLabel = new Text(t.getTitle());
+            titleLabel.setFill(Color.web("#AAAAAA"));
 
             Label daysLabel = new Label("("+t.getDaysRemaining() + " Days Left.)");
             daysLabel.setStyle("-fx-text-fill: #AAAAAA;");
@@ -158,6 +159,17 @@ public class AgendaScreen extends Window {
                     "-fx-max-width: 20; -fx-max-height: 20; " +
                     "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 3;");
 
+            // Apply strikethrough if completed to appear crossed out.
+            if (t.getCompleted()) {
+                titleLabel.setStrikethrough(true);
+                doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
+                        "-fx-max-width: 20; -fx-max-height: 20; " +
+                        "-fx-background-color: transparent; -fx-border-color: green; -fx-border-radius: 3;");
+                daysLabel.setText("Done!");
+            } else {
+                titleLabel.setStyle("-fx-text-fill: #AAAAAA;");
+            }
+
             Button deleteBtn = new Button("X");
             deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
             deleteBtn.setOnAction(e -> {
@@ -166,7 +178,8 @@ public class AgendaScreen extends Window {
             });
 
             doneBtn.setOnAction(e -> {
-                u.removeTask(t);
+                // u.removeTask(t);
+                t.complete();
                 refreshTaskList(u, taskContainer);
             });
 
@@ -199,7 +212,7 @@ public class AgendaScreen extends Window {
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: black;");
         VBox taskContainer = new VBox(10);
-        root.setCenter(taskContainer);
+        //root.setCenter(taskContainer);
 
         Label title = new Label("Your Agenda Today.");
         title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
