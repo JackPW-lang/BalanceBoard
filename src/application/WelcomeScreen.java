@@ -50,6 +50,16 @@ public class WelcomeScreen extends Window {
             navButtons.setAlignment(Pos.CENTER);
             navButtons.getChildren().addAll(toAgenda, toSchedule, toAnalytics);
 
+            // Welcome message
+            Label title = new Label("Welcome, "+u.getName()+".");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+            // Title fade animation
+            FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);
+            titleFade.setFromValue(0.0);
+            titleFade.setToValue(1.0);
+            titleFade.play();
+
             Button[] buttons = {toAgenda, toSchedule, toAnalytics};
             for (int i = 0; i < buttons.length; i++) {
                 buttons[i].setOpacity(0);
@@ -64,10 +74,6 @@ public class WelcomeScreen extends Window {
             root.setStyle("-fx-background-color: black;");
             root.setCenter(navButtons);
             root.setBottom(toComplex);
-
-            // Welcome message
-            Label title = new Label("Welcome, "+u.getName()+".");
-            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
 
             VBox welcome = new VBox();
             welcome.setAlignment(Pos.CENTER);

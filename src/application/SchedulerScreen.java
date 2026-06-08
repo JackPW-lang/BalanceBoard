@@ -279,6 +279,15 @@ public class SchedulerScreen extends Window {
             midContent.setAlignment(Pos.CENTER);
             midContent.getChildren().addAll(addEvent, home);
 
+            Label title = new Label("Your Upcoming Events.");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+            // Title fade animation
+            FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);
+            titleFade.setFromValue(0.0);
+            titleFade.setToValue(1.0);
+            titleFade.play();
+
             Button[] buttons = {addEvent, home};
             for (int i = 0; i < buttons.length; i++) {
                 buttons[i].setOpacity(0);
@@ -293,9 +302,6 @@ public class SchedulerScreen extends Window {
             root.setStyle("-fx-background-color: black;");
             VBox eventContainer = new VBox(10);
             root.setCenter(eventContainer);
-
-            Label title = new Label("Your Upcoming Events.");
-            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
 
             VBox middle = new VBox();
             middle.setAlignment(Pos.CENTER);

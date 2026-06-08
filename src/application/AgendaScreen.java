@@ -192,6 +192,7 @@ public class AgendaScreen extends Window {
             taskRow.getChildren().addAll(deleteBtn, titleLabel, daysLabel, spacer, doneBtn);
             taskContainer.getChildren().add(taskRow);
 
+
             // Fade Animation
             taskRow.setOpacity(0);
             FadeTransition fade = new FadeTransition(Duration.millis(500), taskRow);
@@ -220,6 +221,15 @@ public class AgendaScreen extends Window {
         midContent.setAlignment(Pos.CENTER);
         midContent.getChildren().addAll(add_Task, home);
 
+        Label title = new Label("Your Agenda Today.");
+        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+
+        // Title fade animation
+        FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);
+        titleFade.setFromValue(0.0);
+        titleFade.setToValue(1.0);
+        titleFade.play();
+
         Button[] buttons = {add_Task, home};
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].setOpacity(0);
@@ -234,9 +244,6 @@ public class AgendaScreen extends Window {
         root.setStyle("-fx-background-color: black;");
         VBox taskContainer = new VBox(10);
         //root.setCenter(taskContainer);
-
-        Label title = new Label("Your Agenda Today.");
-        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
 
         VBox middle = new VBox();
         middle.setAlignment(Pos.CENTER);
