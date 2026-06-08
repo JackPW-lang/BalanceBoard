@@ -46,7 +46,7 @@ At this time, contributions are not permitted as this project is private.
 
 ## License (MIT)
 
-Copyright (c) 2025 Jack Parry-Wingfield.
+Copyright (c) 2026 Jack Parry-Wingfield.
 
 All rights reserved.
 
