@@ -47,14 +47,18 @@ public class AgendaScreen extends Window {
         Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 
         createButton.setStyle(
-                "-fx-background-color: #4CAF50;" +  // green
-                        "-fx-text-fill: white;" +
+                "-fx-background-color: #222222;" +
+                        "-fx-border-color: green;" +
+                        "-fx-text-fill: green;" +
                         "-fx-font-weight: bold;"
         );
 
         cancelButton.setStyle(
-                "-fx-background-color: #555555;" +  // grey
-                        "-fx-text-fill: white;"
+                "-fx-background-color: #222222;" +
+                        "-fx-border-color: grey;" + // grey
+                        "-fx-text-fill: grey;" +
+                        "-fx-font-weight: bold;"
+
         );
 
         // input fields
@@ -63,7 +67,9 @@ public class AgendaScreen extends Window {
         titleField.setPromptText("Task title (required)");
         titleField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: grey;" +
                         "-fx-text-fill: white;" +
+                        "-fx-font-family: 'Georgia';" +
                         "-fx-prompt-text-fill: #888888;"
         );
 
@@ -71,13 +77,16 @@ public class AgendaScreen extends Window {
         daysField.setPromptText("Days remaining (required)");
         daysField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: grey;" +
                         "-fx-text-fill: white;" +
+                        "-fx-font-family: 'Georgia';" +
                         "-fx-prompt-text-fill: #888888;"
         );
 
         CheckBox recurringBox = new CheckBox("Recurring task?");
         recurringBox.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-font-family: 'Georgia';" +
                         "-fx-text-fill: #888888;"
         );
 
@@ -108,8 +117,9 @@ public class AgendaScreen extends Window {
                 titleField.setStyle(
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
+                                "-fx-font-family: 'Georgia';" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;"
                 );
                 e.consume();
             }
@@ -117,15 +127,21 @@ public class AgendaScreen extends Window {
                 daysField.setStyle(
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
+                                "-fx-font-family: 'Georgia';" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;"
                 );
                 e.consume();
             } else {
                 try {
                     Integer.parseInt(daysField.getText());
                 } catch (NumberFormatException exception) {
-                    daysField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                    daysField.setStyle("-fx-background-color: #222222;" +
+                            "-fx-text-fill: white;" +
+                            "-fx-font-family: 'Georgia';" +
+                            "-fx-prompt-text-fill: #888888;" +
+                            "-fx-border-color: red;"
+                    );
                     e.consume();
                 }
             }
