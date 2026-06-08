@@ -178,22 +178,22 @@ public class AgendaScreen extends Window {
 
             Button doneBtn = new Button();
             doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
-                    "-fx-max-width: 20; -fx-max-height: 20; " +
+                    "-fx-max-width: 20; -fx-max-height: 20; -fx-border-width: 2px;" +
                     "-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 3;");
 
             // Apply strikethrough if completed to appear crossed out.
             if (t.getCompleted()) {
                 titleLabel.setStrikethrough(true);
                 doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
-                        "-fx-max-width: 20; -fx-max-height: 20; " +
+                        "-fx-max-width: 20; -fx-max-height: 20; -fx-border-width: 2px;" +
                         "-fx-background-color: transparent; -fx-border-color: green; -fx-border-radius: 3;");
                 daysLabel.setText("Done!");
             } else {
                 titleLabel.setStyle("-fx-text-fill: #AAAAAA;");
             }
 
-            Button deleteBtn = new Button("X");
-            deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
+            Button deleteBtn = new Button("❌");
+            deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 10;");
             deleteBtn.setOnAction(e -> {
                 u.removeTask(t);
                 refreshTaskList(u, taskContainer);
