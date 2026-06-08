@@ -36,10 +36,10 @@ public class WelcomeScreen extends Window {
             // Button Style
             toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +
                     "-fx-font-size: 11; -fx-cursor: hand;");
-            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 20;" +
+            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 16;" +
                     "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
                     "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
-                    "-fx-font-size: 13; -fx-cursor: hand;";
+                    " -fx-cursor: hand;";
 
             toAgenda.setStyle(btnStyle);
             toSchedule.setStyle(btnStyle);
