@@ -265,9 +265,9 @@ public class SchedulerScreen extends Window {
             Button home = new Button("Home");
             Button toComplex = new Button("Switch to Complex Mode (Not Yet Implemented.)");
 
-            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Times New Roman';" +
+            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Georgia';" +
                     "-fx-font-size: 11; -fx-cursor: hand;");
-            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 16;" +
+            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 16;" +
                     "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
                     "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
                     "-fx-cursor: hand;";
@@ -280,7 +280,7 @@ public class SchedulerScreen extends Window {
             midContent.getChildren().addAll(addEvent, home);
 
             Label title = new Label("Your Upcoming Events.");
-            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-size: 24;");
 
             // Title fade animation
             FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);

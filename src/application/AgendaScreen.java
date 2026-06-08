@@ -155,10 +155,10 @@ public class AgendaScreen extends Window {
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
             Text titleLabel = new Text(t.getTitle());
             titleLabel.setFill(Color.web("#AAAAAA"));
-            titleLabel.setFont(Font.font("Times New Roman", FontWeight.NORMAL, 16));
+            titleLabel.setFont(Font.font("Georgia", FontWeight.NORMAL, 14));
 
             Label daysLabel = new Label("("+t.getDaysRemaining() + " Days Left.)");
-            daysLabel.setStyle("-fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 16;");
+            daysLabel.setStyle("-fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 14;");
 
             Button doneBtn = new Button();
             doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
@@ -212,7 +212,7 @@ public class AgendaScreen extends Window {
         Button add_Task = new Button("Add Task");
         Button home = new Button("Home");
 
-        String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Times New Roman'; -fx-font-size: 16;" +
+        String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 16;" +
                 "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
                 "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
                 "-fx-cursor: hand;";
@@ -225,7 +225,7 @@ public class AgendaScreen extends Window {
         midContent.getChildren().addAll(add_Task, home);
 
         Label title = new Label("Your Agenda Today.");
-        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Times New Roman'; -fx-font-size: 24;");
+        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-size: 24;");
 
         // Title fade animation
         FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);

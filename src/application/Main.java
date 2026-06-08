@@ -14,7 +14,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
 			// Welcome Screen is launched first
 			User user = new User("Jack", Level.UNIVERSITY);
 			WelcomeScreen welcome = new WelcomeScreen(primaryStage, user);
