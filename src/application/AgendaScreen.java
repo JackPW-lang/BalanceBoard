@@ -50,14 +50,18 @@ public class AgendaScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: green;" +
                         "-fx-text-fill: green;" +
-                        "-fx-font-weight: bold;"
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;" +
+                        "-fx-font-family: 'Georgia';"
         );
 
         cancelButton.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: grey;" + // grey
                         "-fx-text-fill: grey;" +
-                        "-fx-font-weight: bold;"
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;" +
+                        "-fx-font-family: 'Georgia';"
 
         );
 
@@ -70,7 +74,9 @@ public class AgendaScreen extends Window {
                         "-fx-border-color: grey;" +
                         "-fx-text-fill: white;" +
                         "-fx-font-family: 'Georgia';" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         TextField daysField = new TextField();
@@ -80,14 +86,19 @@ public class AgendaScreen extends Window {
                         "-fx-border-color: grey;" +
                         "-fx-text-fill: white;" +
                         "-fx-font-family: 'Georgia';" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         CheckBox recurringBox = new CheckBox("Recurring task?");
         recurringBox.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-font-family: 'Georgia';" +
-                        "-fx-text-fill: #888888;"
+                        "-fx-text-fill: #888888;" +
+                        "-fx-border-color: grey;" +
+                        "-fx-border-radius: 5;" +
+                        "-fx-background-radius: 5;"
         );
 
         VBox layout = new VBox(10, titleField, daysField, recurringBox);
@@ -119,7 +130,9 @@ public class AgendaScreen extends Window {
                                 "-fx-text-fill: white;" +
                                 "-fx-font-family: 'Georgia';" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -129,7 +142,9 @@ public class AgendaScreen extends Window {
                                 "-fx-text-fill: white;" +
                                 "-fx-font-family: 'Georgia';" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red;"
+                                "-fx-border-color: red;" +
+                            "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             } else {
@@ -140,7 +155,9 @@ public class AgendaScreen extends Window {
                             "-fx-text-fill: white;" +
                             "-fx-font-family: 'Georgia';" +
                             "-fx-prompt-text-fill: #888888;" +
-                            "-fx-border-color: red;"
+                            "-fx-border-color: red;" +
+                            "-fx-background-radius: 7;" +
+                                    "-fx-border-radius: 7;"
                     );
                     e.consume();
                 }

@@ -43,14 +43,18 @@ public class SchedulerScreen extends Window {
         Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 
         createButton.setStyle(
-                "-fx-background-color: #4CAF50;" +  // green
+                "-fx-background-color: #4CAF50;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-weight: bold;"
+                        "-fx-font-weight: bold;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         cancelButton.setStyle(
-                "-fx-background-color: #555555;" +  // grey
-                        "-fx-text-fill: white;"
+                "-fx-background-color: #555555;" +
+                        "-fx-text-fill: white;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         // input fields
