@@ -13,16 +13,15 @@ public class Task { // Task class - tasks which are displayed on the agenda scre
     //private int daysToStart; (for analytics purposes)
 
     // Constructors
-    public Task (String title, int daysRemaining, boolean isRecurring) {
+    public Task (String title, int daysRemaining) {
 
         this.title = title;
         this.daysRemaining = daysRemaining;
-        this.isRecurring = isRecurring;
+        //this.isRecurring = isRecurring;
         this.isCompleted = false;
     }
 
     // Methods
-
     public void complete() { this.isCompleted = true; }
 
     // Setters

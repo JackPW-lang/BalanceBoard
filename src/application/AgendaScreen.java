@@ -71,7 +71,7 @@ public class AgendaScreen extends Window {
         titleField.setPromptText("Task title (required)");
         titleField.setStyle(
                 "-fx-background-color: #222222;" +
-                        "-fx-border-color: grey;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
                         "-fx-font-family: 'Georgia';" +
                         "-fx-prompt-text-fill: #888888;" +
@@ -83,7 +83,7 @@ public class AgendaScreen extends Window {
         daysField.setPromptText("Days remaining (required)");
         daysField.setStyle(
                 "-fx-background-color: #222222;" +
-                        "-fx-border-color: grey;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
                         "-fx-font-family: 'Georgia';" +
                         "-fx-prompt-text-fill: #888888;" +
@@ -91,28 +91,28 @@ public class AgendaScreen extends Window {
                         "-fx-border-radius: 7;"
         );
 
+        /*
         CheckBox recurringBox = new CheckBox("Recurring task?");
         recurringBox.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-font-family: 'Georgia';" +
                         "-fx-text-fill: #888888;" +
-                        "-fx-border-color: grey;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-border-radius: 5;" +
                         "-fx-background-radius: 5;"
         );
+         */
 
-        VBox layout = new VBox(10, titleField, daysField, recurringBox);
+        VBox layout = new VBox(10, titleField, daysField);
         layout.setStyle("-fx-padding: 20;");
         dialog.getDialogPane().setContent(layout);
-
 
         dialog.setResultConverter(button -> { // inputs: any button clicked on addTask popup
             if (button == createBtn) {
                 try {
                     return new Task(
                             titleField.getText(),
-                            Integer.parseInt(daysField.getText()),
-                            recurringBox.isSelected()
+                            Integer.parseInt(daysField.getText())
                     );
                 } catch (Exception e) { // note that emptiness also counts as an exception when using parseInt.
                     return null; // invalid input
