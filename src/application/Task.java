@@ -1,5 +1,7 @@
 package application;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ListResourceBundle;
 
 public class Task { // Task class - tasks which are displayed on the agenda screen.
@@ -13,10 +15,10 @@ public class Task { // Task class - tasks which are displayed on the agenda scre
     //private int daysToStart; (for analytics purposes)
 
     // Constructors
-    public Task (String title, int daysRemaining) {
+    public Task (String title, LocalDate dueDate) {
 
         this.title = title;
-        this.daysRemaining = daysRemaining;
+        this.daysRemaining = (int) ChronoUnit.DAYS.between(LocalDate.now(), dueDate);
         //this.isRecurring = isRecurring;
         this.isCompleted = false;
     }

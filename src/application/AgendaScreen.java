@@ -20,6 +20,9 @@ import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class AgendaScreen extends Window {
 
     // Fields inherited from Window: scene, stage, user
@@ -68,7 +71,7 @@ public class AgendaScreen extends Window {
         // input fields
 
         TextField titleField = new TextField();
-        titleField.setPromptText("Task title (required)");
+        titleField.setPromptText("Task Title");
         titleField.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
@@ -80,7 +83,7 @@ public class AgendaScreen extends Window {
         );
 
         TextField daysField = new TextField();
-        daysField.setPromptText("Days remaining (required)");
+        daysField.setPromptText("Due Date (mm/dd)");
         daysField.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
@@ -110,12 +113,14 @@ public class AgendaScreen extends Window {
         dialog.setResultConverter(button -> { // inputs: any button clicked on addTask popup
             if (button == createBtn) {
                 try {
-                    return new Task(
-                            titleField.getText(),
-                            Integer.parseInt(daysField.getText())
-                    );
-                } catch (Exception e) { // note that emptiness also counts as an exception when using parseInt.
-                    return null; // invalid input
+                    LocalDate due = LocalDate.parse(daysField.getText() + "/" + LocalDate.now().getYear(),
+                            DateTimeFormatter.ofPattern("M/d/yyyy"));
+                    if (due.isBefore(LocalDate.now())) {
+                        due = due.plusYears(1);
+                    }
+                    return new Task(titleField.getText(), due);
+                } catch (Exception e) {
+                    return null;
                 }
             }
             return null;
@@ -149,8 +154,9 @@ public class AgendaScreen extends Window {
                 e.consume();
             } else {
                 try {
-                    Integer.parseInt(daysField.getText());
-                } catch (NumberFormatException exception) {
+                    LocalDate.parse(daysField.getText() + "/" + LocalDate.now().getYear(),
+                            DateTimeFormatter.ofPattern("M/d/yyyy"));
+                } catch (Exception exception) {
                     daysField.setStyle("-fx-background-color: #222222;" +
                             "-fx-text-fill: white;" +
                             "-fx-font-family: 'Georgia';" +

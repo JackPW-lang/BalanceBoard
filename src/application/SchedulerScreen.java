@@ -87,7 +87,7 @@ public class SchedulerScreen extends Window {
         endTimeField.setStyle(
                 "-fx-background-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-prompt-text-fill: white;"
         );
 
         CheckBox recurringBox = new CheckBox("Weekly event");
