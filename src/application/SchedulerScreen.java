@@ -146,7 +146,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -155,7 +157,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -164,7 +168,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -173,7 +179,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -185,7 +193,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -196,7 +206,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
@@ -207,7 +219,9 @@ public class SchedulerScreen extends Window {
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
                                 "-fx-prompt-text-fill: #888888;" +
-                                "-fx-border-color: red; -fx-border-width: 2px;"
+                                "-fx-border-color: red;" +
+                                "-fx-background-radius: 7;" +
+                                "-fx-border-radius: 7;"
                 );
                 e.consume();
             }
