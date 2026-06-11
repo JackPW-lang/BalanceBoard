@@ -8,6 +8,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.geometry.Pos;
@@ -43,51 +47,71 @@ public class SchedulerScreen extends Window {
         Button cancelButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.CANCEL);
 
         createButton.setStyle(
-                "-fx-background-color: #4CAF50;" +
-                        "-fx-text-fill: white;" +
-                        "-fx-font-weight: bold;" +
+                "-fx-background-color: #222222;" +
+                        "-fx-border-color: green;" +
+                        "-fx-text-fill: green;" +
                         "-fx-background-radius: 7;" +
-                        "-fx-border-radius: 7;"
+                        "-fx-border-radius: 7;" +
+                        "-fx-font-family: 'Georgia';"
         );
 
         cancelButton.setStyle(
-                "-fx-background-color: #555555;" +
-                        "-fx-text-fill: white;" +
+                "-fx-background-color: #222222;" +
+                        "-fx-border-color: grey;" + // grey
+                        "-fx-text-fill: grey;" +
                         "-fx-background-radius: 7;" +
-                        "-fx-border-radius: 7;"
+                        "-fx-border-radius: 7;" +
+                        "-fx-font-family: 'Georgia';"
+
         );
 
         // input fields
         TextField titleField = new TextField();
-        titleField.setPromptText("Event title (required)");
+        titleField.setPromptText("Event title");
         titleField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-font-family: 'Georgia';" +
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         TextField dateField = new TextField();
-        dateField.setPromptText("Date (mm/dd; required)");
+        dateField.setPromptText("Date (mm/dd)");
         dateField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-font-family: 'Georgia';" +
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         TextField startTimeField = new TextField();
-        startTimeField.setPromptText("Start Time (hh:mm; required)");
+        startTimeField.setPromptText("Start Time (hh:mm)");
         startTimeField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-prompt-text-fill: #888888;"
+                        "-fx-font-family: 'Georgia';" +
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         TextField endTimeField = new TextField();
-        endTimeField.setPromptText("End Time (hh:mm; required)");
+        endTimeField.setPromptText("End Time (hh:mm)");
         endTimeField.setStyle(
                 "-fx-background-color: #222222;" +
+                        "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-prompt-text-fill: white;"
+                        "-fx-font-family: 'Georgia';" +
+                        "-fx-prompt-text-fill: #888888;" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
         );
 
         CheckBox recurringBox = new CheckBox("Weekly event");
@@ -207,8 +231,10 @@ public class SchedulerScreen extends Window {
             eventRow.setAlignment(Pos.CENTER);
 
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
-            Label titleLabel = new Label(ev.getTitle()+":");
-            titleLabel.setStyle("-fx-text-fill: #AAAAAA;");
+            Text titleLabel = new Text(ev.getTitle()+":");
+            titleLabel.setFill(Color.web("#AAAAAA"));
+            titleLabel.setFont(Font.font("Georgia", FontWeight.NORMAL, 14));
+
 
             Label dateLabel;
             dateLabel = new Label(ev.getDate().toString());
@@ -222,7 +248,7 @@ public class SchedulerScreen extends Window {
             endLabel = new Label(ev.getEnd().toString());
             endLabel.setStyle("-fx-text-fill: #AAAAAA;");
 
-            Button deleteBtn = new Button("🗑️");
+            Button deleteBtn = new Button("❌");
             deleteBtn.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff4444; -fx-font-size: 14;");
             deleteBtn.setOnAction(e -> {
                 u.removeEvent(ev);
@@ -236,9 +262,22 @@ public class SchedulerScreen extends Window {
 
             // When the user checks the doneBox, this removes the task from their list, and we refresh the list visually as well.
             doneBtn.setOnAction(e -> {
-                u.removeEvent(ev);
+                ev.complete();
                 refreshEventList(u, eventContainer);
             });
+
+            // Apply strikethrough if completed to appear crossed out.
+            if (ev.getCompleted()) {
+                titleLabel.setStrikethrough(true);
+                doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
+                        "-fx-max-width: 20; -fx-max-height: 20; -fx-border-width: 2px;" +
+                        "-fx-background-color: transparent; -fx-border-color: green; -fx-border-radius: 3;");
+                dateLabel.setText("Done!");
+                startLabel.setText("");
+                endLabel.setText("");
+            } else {
+                titleLabel.setStyle("-fx-text-fill: #AAAAAA;");
+            }
 
             // Spacer that enables doneBtn to be on right hand side
             HBox spacer = new HBox();

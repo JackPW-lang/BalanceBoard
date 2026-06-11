@@ -32,4 +32,7 @@ public class Event { // Event class - similar to the Task class, but for events 
     public LocalDate getDate() { return this.date; }
     public boolean getWeekly() { return this.isWeekly; }
     public boolean getCompleted() { return this.completed; }
+    public void complete() {
+        this.completed = true;
+    }
 }
