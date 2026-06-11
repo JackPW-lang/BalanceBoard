@@ -115,6 +115,14 @@ public class SchedulerScreen extends Window {
         );
 
         CheckBox recurringBox = new CheckBox("Weekly event");
+        recurringBox.setStyle(
+                "-fx-background-color: #222222;" +
+                        "-fx-border-color: #222222;" +
+                        "-fx-text-fill: #888888;" +
+                        "-fx-font-family: 'Georgia';" +
+                        "-fx-background-radius: 7;" +
+                        "-fx-border-radius: 7;"
+        );
 
         VBox layout = new VBox(10, titleField, dateField, startTimeField, endTimeField, recurringBox);
         layout.setStyle("-fx-padding: 20;");
@@ -148,7 +156,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -159,7 +168,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -170,7 +180,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -181,7 +192,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -195,7 +207,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -208,7 +221,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
@@ -221,7 +235,8 @@ public class SchedulerScreen extends Window {
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
-                                "-fx-border-radius: 7;"
+                                "-fx-border-radius: 7;" +
+                                "-fx-font-family: 'Georgia';"
                 );
                 e.consume();
             }
