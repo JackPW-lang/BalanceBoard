@@ -41,6 +41,11 @@ public class WelcomeScreen extends Window {
                     "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
                     " -fx-cursor: hand;";
 
+            // ensures all buttons are the same size
+            toAgenda.setMinSize(120, 90);
+            toSchedule.setMinSize(120, 90);
+            toAnalytics.setMinSize(120, 90);
+
             toAgenda.setStyle(btnStyle);
             toSchedule.setStyle(btnStyle);
             toAnalytics.setStyle(btnStyle);
