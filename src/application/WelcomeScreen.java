@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.geometry.Pos;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+
 public class WelcomeScreen extends Window {
 
     // Fields inherited from Window: scene, stage, user
@@ -55,8 +57,21 @@ public class WelcomeScreen extends Window {
             navButtons.setAlignment(Pos.CENTER);
             navButtons.getChildren().addAll(toAgenda, toSchedule, toAnalytics);
 
-            // Welcome message
-            Label title = new Label("Welcome, "+u.getName()+".");
+            // Welcome message randomization
+            String [] messages = {
+                "Welcome, "+u.getName()+".",
+                "The world is your oyster, "+u.getName()+".",
+                "Seize the day, "+u.getName()+".",
+                "Good to see you, "+u.getName()+".",
+                "Dream big, "+u.getName()+".",
+                "Make today count, "+u.getName()+".",
+                "What's next, "+u.getName()+"?",
+                "Keep striving, "+u.getName()+".",
+                "And so the grind continues, "+u.getName()+".",
+                "Hard work buys time for your future self, "+u.getName()+".",
+            };
+            int selectedMessage = (int) (Math.random() * messages.length);
+            Label title = new Label(messages[selectedMessage]);
             title.setStyle("-fx-text-fill: white; -fx-font-family: 'System'; -fx-font-size: 24;");
 
             // Title fade animation
