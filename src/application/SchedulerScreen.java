@@ -52,7 +52,7 @@ public class SchedulerScreen extends Window {
                         "-fx-text-fill: green;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;" +
-                        "-fx-font-family: 'Georgia';"
+                        "-fx-font-family: 'System';"
         );
 
         cancelButton.setStyle(
@@ -61,7 +61,7 @@ public class SchedulerScreen extends Window {
                         "-fx-text-fill: grey;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;" +
-                        "-fx-font-family: 'Georgia';"
+                        "-fx-font-family: 'System';"
 
         );
 
@@ -72,7 +72,7 @@ public class SchedulerScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -84,7 +84,7 @@ public class SchedulerScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -96,7 +96,7 @@ public class SchedulerScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -108,7 +108,7 @@ public class SchedulerScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -119,7 +119,7 @@ public class SchedulerScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: #888888;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
         );
@@ -157,7 +157,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -169,7 +169,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -181,7 +181,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -193,7 +193,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -208,7 +208,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -222,7 +222,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -236,7 +236,7 @@ public class SchedulerScreen extends Window {
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
                                 "-fx-border-radius: 7;" +
-                                "-fx-font-family: 'Georgia';"
+                                "-fx-font-family: 'System';"
                 );
                 e.consume();
             }
@@ -337,9 +337,9 @@ public class SchedulerScreen extends Window {
             Button home = new Button("Home");
             Button toComplex = new Button("Switch to Complex Mode (Not Yet Implemented.)");
 
-            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'Georgia';" +
+            toComplex.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-family: 'System';" +
                     "-fx-font-size: 11; -fx-cursor: hand;");
-            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 16;" +
+            String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'System'; -fx-font-size: 16;" +
                     "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
                     "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
                     "-fx-cursor: hand;";
@@ -352,7 +352,7 @@ public class SchedulerScreen extends Window {
             midContent.getChildren().addAll(addEvent, home);
 
             Label title = new Label("Your Upcoming Events.");
-            title.setStyle("-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-size: 24;");
+            title.setStyle("-fx-text-fill: white; -fx-font-family: 'System'; -fx-font-size: 24;");
 
             // Title fade animation
             FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);

@@ -55,7 +55,7 @@ public class AgendaScreen extends Window {
                         "-fx-text-fill: green;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;" +
-                        "-fx-font-family: 'Georgia';"
+                        "-fx-font-family: 'System';"
         );
 
         cancelButton.setStyle(
@@ -64,7 +64,7 @@ public class AgendaScreen extends Window {
                         "-fx-text-fill: grey;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;" +
-                        "-fx-font-family: 'Georgia';"
+                        "-fx-font-family: 'System';"
 
         );
 
@@ -76,7 +76,7 @@ public class AgendaScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -88,7 +88,7 @@ public class AgendaScreen extends Window {
                 "-fx-background-color: #222222;" +
                         "-fx-border-color: #222222;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-family: 'Georgia';" +
+                        "-fx-font-family: 'System';" +
                         "-fx-prompt-text-fill: #888888;" +
                         "-fx-background-radius: 7;" +
                         "-fx-border-radius: 7;"
@@ -133,7 +133,7 @@ public class AgendaScreen extends Window {
                 titleField.setStyle(
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
-                                "-fx-font-family: 'Georgia';" +
+                                "-fx-font-family: 'System';" +
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                                 "-fx-background-radius: 7;" +
@@ -145,7 +145,7 @@ public class AgendaScreen extends Window {
                 daysField.setStyle(
                         "-fx-background-color: #222222;" +
                                 "-fx-text-fill: white;" +
-                                "-fx-font-family: 'Georgia';" +
+                                "-fx-font-family: 'System';" +
                                 "-fx-prompt-text-fill: #888888;" +
                                 "-fx-border-color: red;" +
                             "-fx-background-radius: 7;" +
@@ -159,7 +159,7 @@ public class AgendaScreen extends Window {
                 } catch (Exception exception) {
                     daysField.setStyle("-fx-background-color: #222222;" +
                             "-fx-text-fill: white;" +
-                            "-fx-font-family: 'Georgia';" +
+                            "-fx-font-family: 'System';" +
                             "-fx-prompt-text-fill: #888888;" +
                             "-fx-border-color: red;" +
                             "-fx-background-radius: 7;" +
@@ -194,10 +194,10 @@ public class AgendaScreen extends Window {
             // Defining  a UI element for each characteristic of a given task - title, days left, completed.
             Text titleLabel = new Text(t.getTitle());
             titleLabel.setFill(Color.web("#AAAAAA"));
-            titleLabel.setFont(Font.font("Georgia", FontWeight.NORMAL, 14));
+            titleLabel.setFont(Font.font("System", FontWeight.NORMAL, 14));
 
-            Label daysLabel = new Label("("+t.getDaysRemaining() + " Days Left.)");
-            daysLabel.setStyle("-fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 14;");
+            Label daysLabel = new Label("("+t.getDaysRemaining() + " Days Left)");
+            daysLabel.setStyle("-fx-text-fill: #AAAAAA; -fx-font-family: 'System'; -fx-font-size: 14; -fx-font-weight: normal;");
 
             Button doneBtn = new Button();
             doneBtn.setStyle("-fx-background-radius: 8; -fx-min-width: 20; -fx-min-height: 20; " +
@@ -248,10 +248,10 @@ public class AgendaScreen extends Window {
     @Override
     public Parent createContent(User u) {
 
-        Button add_Task = new Button("Add Task");
+        Button add_Task = new Button("New Task");
         Button home = new Button("Home");
 
-        String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'Georgia'; -fx-font-size: 16;" +
+        String btnStyle = "-fx-background-color: #1a1a1a; -fx-text-fill: #AAAAAA; -fx-font-family: 'System'; -fx-font-size: 16;" +
                 "-fx-background-radius: 12; -fx-border-color: #2a2a2a; " +
                 "-fx-border-radius: 12; -fx-padding: 30 25 30 25; " +
                 "-fx-cursor: hand;";
@@ -264,7 +264,7 @@ public class AgendaScreen extends Window {
         midContent.getChildren().addAll(add_Task, home);
 
         Label title = new Label("Your Agenda Today.");
-        title.setStyle("-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-size: 24;");
+        title.setStyle("-fx-text-fill: white; -fx-font-family: 'System'; -fx-font-size: 24;");
 
         // Title fade animation
         FadeTransition titleFade = new FadeTransition(Duration.millis(1500), title);
